@@ -45,6 +45,8 @@
     <Compile Include="Property\ItemAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property\ModifierType.cs" />
+    <Compile Include="Property\PrefixModifierType.cs" />
+    <Compile Include="Property\SuffixModifierType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\" />

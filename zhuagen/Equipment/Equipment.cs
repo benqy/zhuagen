@@ -36,7 +36,10 @@ public class Equipment {
     /// </summary>
     public string Name { 
         get{
-            return this.EnquipmentType.ToString();
+            var name = this.EnquipmentType.ToString();
+            name =this.ItemModifiers[this.ItemModifiers.Count/2 ].ModifierType.ModifierName + name;
+            name = this.ItemModifiers[0].ModifierType.ModifierName + name;
+            return name;
         }
     }
 
