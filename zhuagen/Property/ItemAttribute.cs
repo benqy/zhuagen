@@ -10,4 +10,9 @@ public class Attri {
     public float Value { get; set; }
 
     public string Name { get; set; }
+
+    /// <summary>
+    /// 属性描述
+    /// </summary>
+    public string Desc { get; set; }
 }
