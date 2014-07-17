@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 public class DropCenter {
     private DropCenter() {
+        SuffixModifierType.InitSuffixList();
+        PrefixModifierType.InitPrefixList();
 
     }
 
@@ -16,8 +18,6 @@ public class DropCenter {
     }
 
     public Equipment DropEquipment() {
-        SuffixModifierType.InitSuffixList();
-        PrefixModifierType.InitPrefixList();
         var equip = new Equipment();
         var r = new Random();
         var rarityArr =new Int32[]{0,2,4,6,7};
