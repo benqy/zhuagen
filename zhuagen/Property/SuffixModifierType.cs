@@ -23,9 +23,6 @@ public abstract class SuffixModifierType : ModifierType {
         get { return AffixType.Suffix; }
     }
 
-
-
-
     private static bool IsSubClassOf(Type type, Type baseType) {
         var b = type.BaseType;
         while (b != null) {
@@ -36,7 +33,6 @@ public abstract class SuffixModifierType : ModifierType {
         }
         return false;
     }
-
 
     /// <summary>
     /// 初始化所有后缀列表
@@ -50,8 +46,6 @@ public abstract class SuffixModifierType : ModifierType {
             SuffixModifierTypes.Add((ModifierType)Activator.CreateInstance(type));
         }
     }
-
-
 }
 
 #region 后缀列表
@@ -79,9 +73,6 @@ public class SavantModifierType : SuffixModifierType {
         }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
-        return m.ModifierValue + InitialValue;
-    }
 }
 
 
@@ -110,7 +101,7 @@ public class MongooseModifierType : SuffixModifierType {
         get { return "敏捷"; }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
+    public float ApplyModifier(Modifier m, float InitialValue) {
         return m.ModifierValue + InitialValue;
     }
 }
@@ -138,7 +129,7 @@ public class BruteModifierType : SuffixModifierType {
         get { return "力量"; }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
+    public float ApplyModifier(Modifier m, float InitialValue) {
         return m.ModifierValue + InitialValue;
     }
 }

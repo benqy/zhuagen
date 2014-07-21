@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BQUtil.cs" />
     <Compile Include="Character\Character.cs" />
     <Compile Include="DropCenter.cs" />
     <Compile Include="Equipment\Equipment.cs" />

@@ -80,7 +80,7 @@ public abstract class ModifierType {
         var range = this.ValueRange
                         .OrderByDescending(t => t.Key)
                         .First(t => t.Key <= equipMentLv).Value;
-        value = new Random(DateTime.Now.Millisecond).Next((int)range[0], (int)range[1]);
+        value = BQUtil.Random((int)range[0], (int)range[1]);
         return value;
     }
 
@@ -90,7 +90,9 @@ public abstract class ModifierType {
     /// <param name="m">词缀</param>
     /// <param name="InitialValue">初始值</param>
     /// <returns></returns>
-    public abstract float ApplyModifier(Modifier m, float InitialValue);
+    public float ApplyModifier(Modifier m, float InitialValue) {
+        return m.ModifierValue + InitialValue;
+    }
 }
 
 

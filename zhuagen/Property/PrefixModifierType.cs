@@ -74,7 +74,7 @@ public class MarModifierType : PrefixModifierType {
         }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
+    public float ApplyModifier(Modifier m, float InitialValue) {
         return m.ModifierValue + InitialValue;
     }
 }
@@ -104,7 +104,7 @@ public class IceModifierType : PrefixModifierType {
         }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
+    public float ApplyModifier(Modifier m, float InitialValue) {
         return m.ModifierValue + InitialValue;
     }
 }
@@ -132,7 +132,7 @@ public class PosionModifierType : PrefixModifierType {
         }
     }
 
-    public override float ApplyModifier(Modifier m, float InitialValue) {
+    public float ApplyModifier(Modifier m, float InitialValue) {
         return m.ModifierValue + InitialValue;
     }
 }

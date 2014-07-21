@@ -8,23 +8,23 @@ namespace sample {
     class Program {
         static void Main(string[] args) {
 
-             var character = new Character();
-        character.AddAttributeute(new Attri(){
-            Name="生命",
-            Value=100f
-        });
-        var eq = DropCenter.Instance.DropEquipment();
-        var a = character.FetchModifiedAttributeutes();
-        character.AddEquipment(eq);
+            var character = new Character(new Dictionary<string, float>() {
+                {"生命",100f},
+                {"力量",8f},
+                {"敏捷",4f},
+                {"智力",2f}
+            });
+            character.AddEquipment(DropCenter.Instance.DropEquipment());
+            character.AddEquipment(DropCenter.Instance.DropEquipment());
 
-        var b = character.FetchModifiedAttributeutes();
-        character.AddEquipment(eq);
-
-        var c = character.FetchModifiedAttributeutes();
-            for (var i = 0; i < 5; i++) {
-                var e = DropCenter.Instance.DropEquipment();
-                Console.WriteLine("------------------------");
-                Console.WriteLine("名称:" + e.Name);
+            var c = character.FetchModifiedAttributeutes();
+            Console.WriteLine("===========人物属性============");
+            c.Select(t => t.Value).ToList().ForEach(t => {
+                Console.WriteLine(t.Name + ":" + t.Value);
+            });
+            Console.WriteLine("===========装备列表============");
+            character.Equipments.ForEach(e => {
+                Console.WriteLine("------------"+e.Name + "------------");
                 Console.WriteLine("品质:" + e.Rarity.ToString());
                 Console.WriteLine("等级:" + e.Level.ToString());
                 e.ItemModifiers.ForEach(t => {
@@ -32,7 +32,7 @@ namespace sample {
                 });
                 Console.WriteLine("类型:" + e.EnquipmentType.ToString());
                 Console.WriteLine("------------------------");
-            }
+            });
             Console.Read();
         }
     }

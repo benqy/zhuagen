@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 public class Character {
 
-    public Character() {
+    public Character(Dictionary<string,float> attrs = null) {
         this._rawAttributeutes = new Dictionary<string, Attri>();
         this._modifiedAttributeutes = new Dictionary<string, Attri>();
         this.Equipments = new List<Equipment>();
+        //初始化人物属性
+        if (attrs != null) {
+            attrs.ToList().ForEach(t => {
+                this.AddAttributeute(new Attri() {
+                    Name = t.Key,
+                    Value = t.Value
+                });
+            });
+        }
     }
 
     //人物原始属性
