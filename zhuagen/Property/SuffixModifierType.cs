@@ -101,9 +101,6 @@ public class MongooseModifierType : SuffixModifierType {
         get { return "敏捷"; }
     }
 
-    public float ApplyModifier(Modifier m, float InitialValue) {
-        return m.ModifierValue + InitialValue;
-    }
 }
 
 
@@ -127,10 +124,6 @@ public class BruteModifierType : SuffixModifierType {
 
     public override string TargetName {
         get { return "力量"; }
-    }
-
-    public float ApplyModifier(Modifier m, float InitialValue) {
-        return m.ModifierValue + InitialValue;
     }
 }
 

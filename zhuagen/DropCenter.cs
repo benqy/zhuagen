@@ -17,11 +17,16 @@ public class DropCenter {
         return true;
     }
 
-    public Equipment DropEquipment() {
+    public Equipment DropEquipment(int et=-1) {
         var equip = new Equipment();
         var rarityArr =new Int32[]{0,2,4,6,7};
         equip.Rarity = Rarity.史诗;
-        equip.EnquipmentType = (EnquipmentType)BQUtil.Random(10);
+        if (et == -1) {
+            equip.EnquipmentType = (EnquipmentType)BQUtil.Random(10);
+        }
+        else {
+            equip.EnquipmentType = (EnquipmentType)et;
+        }
         equip.Level = BQUtil.Random(1, 23);
         var modifierCount = (int)equip.Rarity;
         //随机装备后缀
