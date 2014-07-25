@@ -5,48 +5,7 @@ using System.Reflection;
 using System.Text;
 
 
-/// <summary>
-/// 后缀类型的词缀继承此类
-/// </summary>
-public abstract class SuffixModifierType : ModifierType {
 
-    //public SuffixModifierType() {
-    //    SuffixModifierType.SuffixModifierTypes.Add(this);
-    //}
-
-    /// <summary>
-    /// 存储所有后缀列表
-    /// </summary>
-    public static List<ModifierType> SuffixModifierTypes = new List<ModifierType>();
-
-    public override AffixType Affix {
-        get { return AffixType.Suffix; }
-    }
-
-    private static bool IsSubClassOf(Type type, Type baseType) {
-        var b = type.BaseType;
-        while (b != null) {
-            if (b.Equals(baseType)) {
-                return true;
-            }
-            b = b.BaseType;
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// 初始化所有后缀列表
-    /// </summary>
-    public static void InitSuffixList() {
-        var suffixTypes = from t in Assembly.GetExecutingAssembly().GetTypes()
-                          where IsSubClassOf(t, typeof(SuffixModifierType))
-                          select t;
-
-        foreach (var type in suffixTypes) {
-            SuffixModifierTypes.Add((ModifierType)Activator.CreateInstance(type));
-        }
-    }
-}
 
 #region 后缀列表
 

@@ -6,52 +6,6 @@ using System.Text;
 
 
 /// <summary>
-/// 后缀类型的词缀继承此类
-/// </summary>
-public abstract class PrefixModifierType : ModifierType {
-
-    /// <summary>
-    /// 存储所有前缀列表
-    /// </summary>
-    public static List<ModifierType> PrefixModifierTypes = new List<ModifierType>();
-
-    public override AffixType Affix {
-        get { return AffixType.Prefix; }
-    }
-
-
-
-
-    private static bool IsSubClassOf(Type type, Type baseType) {
-        var b = type.BaseType;
-        while (b != null) {
-            if (b.Equals(baseType)) {
-                return true;
-            }
-            b = b.BaseType;
-        }
-        return false;
-    }
-
-
-    /// <summary>
-    /// 初始化所有后缀列表
-    /// </summary>
-    public static void InitPrefixList() {
-        var suffixTypes = from t in Assembly.GetExecutingAssembly().GetTypes()
-                          where IsSubClassOf(t, typeof(PrefixModifierType))
-                          select t;
-
-        foreach (var type in suffixTypes) {
-            PrefixModifierTypes.Add((ModifierType)Activator.CreateInstance(type));
-        }
-    }
-
-
-}
-
-
-/// <summary>
 /// 词缀:火星,属性:火炕
 /// </summary>
 public class MarModifierType : PrefixModifierType {
